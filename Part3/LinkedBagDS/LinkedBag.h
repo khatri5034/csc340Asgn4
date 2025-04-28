@@ -27,15 +27,55 @@ class LinkedBag : public BagInterface<ItemType>
 		virtual ~LinkedBag(); // Destructor should be virtual
 		
 		//   SORTING ----------------------------------------------------
+		/** sort the list with chosen method
+		 * @param method - 0 for merge sort, 1 for quick sort
+		 */
 		void sort(int method = 0);
-		void mergeSort();
+
+		void mergeSort(); //sort the list with merge sort
+
+		/** split list from middle
+		 * @param head - pointer to the head node of the list to be splitted
+		 * @return pointer to the head node of the second half list
+		 */
 		Node<ItemType>* splitMiddle(Node<ItemType>* head);
+
+		/** recursively sort list with merge sort
+		 * @param head - pointer to the head node of the list to be sorted
+		 * @return pointer to the head node of the sorted list
+		 */
 		Node<ItemType>* mergeSortRec(Node<ItemType>* head);
+
+		/** merge two list
+		 * @param l1 - pointer to the head node of first list to be merged
+		 * @param l2 - pointer to the second list to be merged
+		 * @return pointer to the head node of the merged list
+		 */
 		Node<ItemType>* merge(Node<ItemType>* l1, Node<ItemType>* l2);
+
 		// EXTRA CREDIT 
-		void quickSort();
+		void quickSort(); //sort the list with quick sort
+
+		/** partition the list after pivot
+		 * @param head - pointer to the head node of list to partition
+		 * @param end - pointer to the pivot node
+		 * @param newHead - pointer to the head node of the list after partition
+		 * @param newEnd - pointer to the tail node of the list after partition
+		 * @return pointer to the pivot node after partition
+		 */
 		Node<ItemType>* partition(Node<ItemType>* head, Node<ItemType>* end, Node<ItemType>** newHead, Node<ItemType>** newEnd);
+		
+		/** recursively sort list with quick sort
+		 * @param head - pointer to the head node of the list to be sorted
+		 * @param end - pointer to the pivot node
+		 * @return pointer to the head node of the sorted list
+		 */
 		Node<ItemType>* quickSortRec(Node<ItemType>* head, Node<ItemType>* end);
+
+		/** get the tail node of the list
+		 * @param head - pointer to the head node of the list
+		 * @return pointer to the tail node of the list
+		 */
 		Node<ItemType>* getTail(Node<ItemType>* head);
 		// --------------------------------------------------------------
 
